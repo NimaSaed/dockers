@@ -1,0 +1,3 @@
+[submodule "blackarch-virtualization"]
+	path = blackarch-virtualization
+	url = https://github.com/BlackArch/blackarch-virtualization.git
