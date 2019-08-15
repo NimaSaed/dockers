@@ -6,7 +6,7 @@ TAG_IMAGE ?= nimasaed/nginxserve
 all: clean build test
 
 clean:
-	-$(DOCKER) rmi -f $(TAG_IMAGE)
+	$(DOCKER) rmi -f $(TAG_IMAGE)
 
 build:
 	$(DOCKER) build -t $(TAG_IMAGE) .
