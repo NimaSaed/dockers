@@ -11,5 +11,5 @@ if [ ${FILENAME:-nothing} = "nothing" ]; then
     echo "docker run --rm -d -p <your_port>:8080 -e FILENAME=<your_filename> -v <path/to/logfolder/>:/log nima/wtee"
     exit 1;
 else
-    tail -f /log/${FILENAME} | /usr/bin/wtee -b $hostname:8080
+    tail -F /log/${FILENAME} | /usr/bin/wtee -b $hostname:8080
 fi
