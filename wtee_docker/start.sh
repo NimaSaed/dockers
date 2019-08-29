@@ -8,7 +8,7 @@ if [ ${FILENAME:-nothing} = "nothing" ]; then
     echo ""
     echo "Help:"
     echo "--------------------------------------------------------"
-    echo "docker run --rm -d -p <your_port>:8080 -e FILENAME=<your_filename> -v <path/to/logfolder/>:/log nima/wtee"
+    echo "docker run --rm -d -p <your_port>:8080 -e FILENAME=<your_filename> -v <path/to/logfolder/>:/log nimasaed/wtee"
     exit 1;
 else
     tail -F /log/${FILENAME} | /usr/bin/wtee -b $hostname:8080
