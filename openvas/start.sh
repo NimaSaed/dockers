@@ -3,7 +3,7 @@ set -o nounset # Treat unset variables as an error
 
 USER_STATUS=$(cat /USER_STATUS)
 OPENVAS_PASSWORD=${PASSWORD:-admin}
-echo ALLOW-HEADER-HOST=${IPADDRESS} >> /etc/default/greenbone-security-assistant
+echo ALLOW_HEADER_HOST=${IPADDRESS} >> /etc/default/greenbone-security-assistant
 
 service redis-server start
 
@@ -28,6 +28,7 @@ then
   echo "SET" > /USER_STATUS
   openvasmd --create-user=admin --role=Admin && openvasmd --user=admin --new-password=$OPENVAS_PASSWORD
 fi
+openvasmd --user=admin --new-password=$OPENVAS_PASSWORD
 
 echo "Updating ..."
 wget http://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xml
