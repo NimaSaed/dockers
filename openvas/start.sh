@@ -4,6 +4,8 @@ set -o nounset # Treat unset variables as an error
 USER_STATUS=$(cat /USER_STATUS)
 OPENVAS_PASSWORD=${PASSWORD:-admin}
 
+sed -i 's/9390/9390 --allow-header-host='${IPADDRESS}'/' /lib/systemd/system/greenbone-security-assistant.service
+
 service redis-server start
 
 echo "Testing redis status ..."
