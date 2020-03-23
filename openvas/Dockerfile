@@ -2,6 +2,7 @@ FROM kalilinux/kali-rolling
 
 RUN \
     apt-get update && \
+    apt-get upgrade -y && \
     apt-get install -y \
     alien \
     xsltproc \
@@ -9,8 +10,8 @@ RUN \
     openssh-client \
     rpm \
     net-tools \
-    openvas && \
-
+    wget \
+    openvas
 
 RUN \
     mv /etc/redis/redis.conf /etc/redis/redis.conf.bak && \
@@ -28,8 +29,7 @@ RUN \
     service openvas-scanner start && \
     greenbone-nvt-sync && \
     greenbone-scapdata-sync && \
-    greenbone-certdata-sync && \
-    openvasmd --rebuild
+    greenbone-certdata-sync
 
 EXPOSE 9392 9390
 
